@@ -34,7 +34,16 @@ namespace :homebrew do
     end
     
     package_list.each do |p|
-      sh "brew install #{p}" do |ok, res|
+
+      p = p.split('/')
+      pkg = p.pop
+
+      if p.any?
+        tap = p.join('/')
+        sh "brew tap #{tap}"
+      end
+
+      sh "brew install #{pkg}" do |ok, res|
         #do nothing, don't die when brew throws an error if already installed
       end
     end
