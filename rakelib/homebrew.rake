@@ -40,7 +40,12 @@ namespace :homebrew do
 
       if p.any?
         tap = p.join('/')
-        sh "brew tap #{tap}"
+
+        begin
+          sh "brew tap #{tap}"
+        rescue Exception => e
+          nil
+        end
       end
 
       sh "brew install #{pkg}" do |ok, res|
