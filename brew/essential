@@ -2,7 +2,12 @@ git
 gist
 wget
 readline
-sqlite
+adamv/alt/tmux-iterm2
 hub
 macvim
 imagemagick
+tree
+ffmpeg
+mysql
+postgresql
+sqlite
