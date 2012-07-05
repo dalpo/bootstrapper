@@ -20,3 +20,5 @@ alias git-graph="git log --graph --date-order -C -M --pretty=format:\"<%h> %ad [
   
 alias ber="bundle exec rake"
 alias be="bundle exec"
+
+export EDITOR='subl' 
