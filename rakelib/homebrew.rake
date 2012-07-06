@@ -1,5 +1,5 @@
 namespace :homebrew do
-  task :install => [:brew_install, :brew_update, :packages_install]
+  task :install => [:brew_install, :brew_update, :brew_upgrade, :packages_install]
   
   desc "installs homebrew"
   task :brew_install do
@@ -7,7 +7,7 @@ namespace :homebrew do
       puts "+++ Installing homebrew"
       sh "/usr/bin/ruby -e \"$(/usr/bin/curl -fksSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)\""
     else
-      #puts "*** homebrew already installed."
+      puts "*** homebrew already installed."
     end
   end
   
@@ -18,8 +18,8 @@ namespace :homebrew do
 
   desc "upgrades all homebrew packages to latest versions"
   task :brew_upgrade => [:brew_update] do
-      sh "brew upgrade"
-      sh "brew cleanup"
+    sh "brew upgrade"
+    sh "brew cleanup"
   end
   
   desc "install packages from the brew directory"

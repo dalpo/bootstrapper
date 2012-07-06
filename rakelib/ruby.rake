@@ -10,7 +10,7 @@ namespace :ruby do
       sh "curl -L get.rvm.io | bash -s stable --ruby" #this autoinstalls current version of ruby now!
       sh "rvm reload"
     else
-      #puts "*** rvm already installed, checking for most recent version..."
+      puts "*** rvm already installed, checking for most recent version..."
       sh "rvm get stable" #upgrade to most recent released version
       sh "rvm reload"
     end
@@ -24,8 +24,8 @@ namespace :ruby do
   end
 
   task :rvm_update do
-      sh "rvm get stable"
-      sh "rvm reload"
+    sh "rvm get stable"
+    sh "rvm reload"
   end
 
   desc "install any rubygems from list"
