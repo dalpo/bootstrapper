@@ -3,3 +3,14 @@
 # cuz rvm installer is annoying and re-adds them!
 #
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+alias ls='ls -G '
+alias ll='ls -lhFa'
+
+alias git-log="git log --decorate --stat --graph --pretty=format:'%C(yellow)%h%Creset (%ar - %Cred%an%Creset), %s%n'"
+alias git-graph="git log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all -- date=short"
+  
+alias ber="bundle exec rake"
+alias be="bundle exec"
+
+export EDITOR='subl' 
