@@ -9,6 +9,7 @@ namespace :git do
     sh "git config --global color.ui true"
     sh "git config --global merge.tool opendiff"
     sh "git config --global core.excludesfile ~/.gitignore"
+    sh "git config --global core.editor /usr/bin/vim"
   end
   
 
