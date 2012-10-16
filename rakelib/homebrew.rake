@@ -1,16 +1,16 @@
 namespace :homebrew do
   task :install => [:brew_install, :brew_update, :brew_upgrade, :packages_install]
-  
+
   desc "installs homebrew"
   task :brew_install do
     if not File.exists? "/usr/local/bin/brew"
       puts "+++ Installing homebrew"
-      sh "/usr/bin/ruby -e \"$(/usr/bin/curl -fksSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)\""
+      sh "/usr/bin/ruby -e \"$(/usr/bin/curl -fksSL https://raw.github.com/mxcl/homebrew/go)\""
     else
       puts "*** homebrew already installed."
     end
   end
-  
+
   desc "updates homebrew package list"
   task :brew_update => [:brew_install] do
     sh "brew update"
@@ -21,7 +21,7 @@ namespace :homebrew do
     sh "brew upgrade"
     sh "brew cleanup"
   end
-  
+
   desc "install packages from the brew directory"
   task :packages_install do
     #read each file in brew directory, assume packages are listed one per line
@@ -32,7 +32,7 @@ namespace :homebrew do
         package_list << line.chomp if not line =~ /^#.*/ #ignore commented out packages
       end
     end
-    
+
     package_list.each do |p|
 
       p = p.split('/')
@@ -53,5 +53,5 @@ namespace :homebrew do
       end
     end
   end
-  
+
 end
